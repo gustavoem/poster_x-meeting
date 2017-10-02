@@ -30,13 +30,12 @@ $^4$Instituto de Qu\'imica, Universidade de S\~ao Paulo, Brazil%
 
 \leftcolumn{ 
 \begin{block}{Motivation}%
-\paragraph{In the context of machine learning, feature selection problem
-consists in choosing a subset of features that best explains the 
+\paragraph{In the context of machine learning, the feature selection 
+problem consists in choosing a subset of features that best explains the 
 classification with minimum redundancy. The space of solutions of this
 problem induces a boolean lattice and the cost function commonly 
-describes U shaped curves on chains of this lattice, caused by growth of
-estimation errors as we add more features.}
-    
+describes U shaped curves on chains of this lattice, what is explained 
+by the growth of estimation errors as we add more features.}
 \paragraph{The U shaped curves justifies the reduction to the U-Curve
 problem: a special case of the feature selection problem where every 
 chain of the search space describe U shaped curves. Many algorithms 
@@ -48,56 +47,56 @@ U-Curve Search (PUCS).}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                     
-\begin{block}{Simulations}%
+\begin{block}{Method}%
     \begin{figure}[h]
     \begin{tabular}{l r}
     \centering
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:full}
         \includegraphics[clip=true, width=0.3\textwidth]{simulation/Boolean_lattice.pdf}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:A}
         \includegraphics[clip=true, width=0.3\textwidth]{simulation/Outer_Boolean_lattice_A.pdf}
     }
     \vspace*{.5cm} \\
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:B}
         \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_B.pdf}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:C}
         \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_C.pdf}
     }
     \vspace*{.5cm} \\
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:D}
         \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_D.pdf}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:E}
         \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_E.pdf}
     }
     \vspace*{.5cm} \\
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:F}
         \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_F.pdf}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:G}
         \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_G.pdf}
     }
     \vspace*{.5cm} \\
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:H}
         \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_H.pdf}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:example:I}
         \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_I.pdf}
     }
@@ -109,11 +108,31 @@ U-Curve Search (PUCS).}
 \end{block}
 
 \vfill 
+\vspace*{-.5cm}%
 \begin{block}{Acknowledgements}%
-\insidecolumns{0.5}{0.5}%
-{\mycenteredimage{institutions/FAPESP.jpg}{1.1}}%
-{\mycenteredimage{institutions/CNPq.png}{1.5}}%
-% \vspace*{-cm}%
+% \insidecolumns{0.2}{2}%
+% {\mycenteredimage{institutions/FAPESP.jpg}{1.1}}%
+% {\mycenteredimage{institutions/capes.jpg}{1.2}}%
+% {\mycenteredimage{institutions/CNPq.png}{1.5}}%
+
+\vspace*{-1.5cm}%
+\begin{figure}[h]
+    \begin{tabular*}{0.7\textwidth}{c@{\extracolsep{\fill}}cc}
+    \centering
+    \subfigure {
+        \includegraphics[clip=true, width=0.2\textwidth]{institutions/FAPESP.jpg}
+    }
+    &
+    \subfigure {
+        \includegraphics[clip=true, width=0.2\textwidth]{institutions/CNPq.png}
+    }
+    &
+    \subfigure {
+        \includegraphics[clip=true, width=0.1\textwidth]{institutions/capes.jpg}
+    }
+    \end{tabular*}   
+\end{figure}
+\vspace*{1.5cm}%
 \end{block}%
 } % end \leftcolumn
 
@@ -138,45 +157,36 @@ Backward Feature Selection (BFS).
 \begin{figure}[h]
     \begin{tabular}{l r}
     \centering
-    \subfigure[] {
+    \subfigure {
         \label{fig:art_res:small:time}
-        \includegraphics[clip=true, width=0.40\textwidth]{results/small_artificial_time.png}
+        \includegraphics[clip=true, width=0.45\textwidth]{results/small_artificial_time.png}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:art_res:small:correctness}
-        \includegraphics[clip=true, width=0.40\textwidth]{results/small_artificial_corr.png}
-    }
-    \end{tabular}   
-    \caption{Average execution time and average number of times each
-    algorithm found the best solution. For these instances we used
-    an ES as a base for the PUCS algorithm.}
-    \label{fig:art_res:small} 
-\end{figure}
-
-\begin{figure}[h]
-    \begin{tabular}{l r}
-    \centering
-    \subfigure[] {
+        \includegraphics[clip=true, width=0.45\textwidth]{results/small_artificial_corr.png}
+    } \\
+    \subfigure {
         \label{fig:art_res:big:time}
-        \includegraphics[clip=true, width=0.40\textwidth]{results/big_artificial_time.png}
+        \includegraphics[clip=true, width=0.45\textwidth]{results/big_artificial_time.png}
     }
     &
-    \subfigure[] {
+    \subfigure {
         \label{fig:art_res:big:correctness}
-        \includegraphics[clip=true, width=0.40\textwidth]{results/big_artificial_corr.png}
+        \includegraphics[clip=true, width=0.45\textwidth]{results/big_artificial_corr.png}
     }
     \end{tabular}   
     \caption{Average execution time and average number of times each
     algorithm found the best solution. For these instances we used
     an SFS as a base for the PUCS algorithm.}
-    \label{fig:art_res:small} 
+    \label{fig:art_res} 
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\includegraphics[clip=true, width=0.75\textwidth]{results/easy_datasets.png}
-\caption{Caption}
+\includegraphics[clip=true, width=1\textwidth]{results/easy_datasets.png}
+\caption{Average cross-validation error when using the features selected by
+    PUCS to project a support vector machine learning model.}
 \label{fig:svm_error}
 \end{figure}
 
@@ -186,9 +196,17 @@ Backward Feature Selection (BFS).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{block}{Conclusion}%
-{%
+{
 
-}%
+\paragraph{On our implementation of PUCS we could see that this algorithm has 
+better time performance than optimal solvers (such as ES) and also finds
+better solutions than heuristics (such as SFS and BFS). Future and
+ongoing work on this project includes:
+\begin{itemize}
+    \item{design of poset forest-based algorithms;}
+    \item{applications on cell signaling pathways.}
+\end{itemize}
+}}
 \end{block}
 }% end of right column
 \end{columns}

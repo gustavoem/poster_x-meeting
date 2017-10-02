@@ -11,8 +11,7 @@
 \beamer@slide {fig:algorithm_toy_example}{1}
 \beamer@slide {fig:art_res:small:time}{1}
 \beamer@slide {fig:art_res:small:correctness}{1}
-\beamer@slide {fig:art_res:small}{1}
 \beamer@slide {fig:art_res:big:time}{1}
 \beamer@slide {fig:art_res:big:correctness}{1}
-\beamer@slide {fig:art_res:small}{1}
+\beamer@slide {fig:art_res}{1}
 \beamer@slide {fig:svm_error}{1}

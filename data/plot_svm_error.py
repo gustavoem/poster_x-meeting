@@ -2,7 +2,7 @@ import re
 import numpy as np
 import matplotlib.pyplot as plt
 
-file_name = "xmeeting_easy_datasets.txt"
+file_name = "xmeeting_results.txt"
 data_sets_err = {}
 
 # 10-run on     Iris with     pucs takes  0.091 and has cross-validation error of 0.067 
