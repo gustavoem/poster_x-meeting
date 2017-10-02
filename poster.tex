@@ -38,9 +38,9 @@ describes U shaped curves on chains of this lattice, what is explained
 by the growth of estimation errors as we add more features.}
 \paragraph{The U shaped curves justifies the reduction to the U-Curve
 problem: a special case of the feature selection problem where every 
-chain of the search space describe U shaped curves. Many algorithms 
+chain of the search space describes U shaped curves. Many algorithms 
 in the literacy exploit this reduction and yet they show limitations 
-regarding scalability, and that shows the need for new approaches on 
+regarding scalability. That shows the need for new approaches on 
 solving the U-Curve problem. To this end, we developed the Parallel 
 U-Curve Search (PUCS).}
 \end{block}
@@ -177,8 +177,8 @@ Backward Feature Selection (BFS).
     }
     \end{tabular}   
     \caption{Average execution time and average number of times each
-    algorithm found the best solution. For these instances we used
-    an SFS as a base for the PUCS algorithm.}
+    algorithm found the best solution. For these instances we used SFS 
+    as a base for the PUCS algorithm.}
     \label{fig:art_res} 
 \end{figure}
 
@@ -198,10 +198,10 @@ Backward Feature Selection (BFS).
 \begin{block}{Conclusion}%
 {
 
-\paragraph{On our implementation of PUCS we could see that this algorithm has 
-better time performance than optimal solvers (such as ES) and also finds
-better solutions than heuristics (such as SFS and BFS). Future and
-ongoing work on this project includes:
+\paragraph{On our implementation of PUCS we could see that this 
+algorithm can have better time performance than optimal solvers
+(such as ES) and also can find better solutions than heuristics 
+(such as SFS and BFS). Future and ongoing work on this project includes:
 \begin{itemize}
     \item{design of poset forest-based algorithms;}
     \item{applications on cell signaling pathways.}
