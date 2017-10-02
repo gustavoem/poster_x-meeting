@@ -1,0 +1,196 @@
+\include{template}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\title{\LARGE%
+A global feature selection algorithm for the\\ model 
+selection step in the identification \\ of cell 
+signaling networks%
+}
+
+\author{\vspace*{1.5cm}\underline{Gustavo Estrela$^{1,2,3}$}, 
+                       Lulu Wu$^{1,2}$, Vincent No\"el$^{1,3}$,
+                       Carlos Eduardo Ferreira$^2$,
+                       Hugo A. Armelin$^{1,3}$, \\
+                       Marco Dimas Gubitoso$^2$,
+                       Junior Barrera$^{1,2}$,
+                       and Marcelo S. Reis$^{1}$}
+
+\institute{%
+$^1$Center of Toxins, Immune-response and Cell Signaling (CeTICS), Instituto Butantan, Brazil\\%
+$^2$Instituto de Matem\'atica e Estat\'istica, Universidade de S\~ao Paulo, Brazil\\%
+$^3$Laboratório Especial de Ciclo Celular (LECC), Instituto Butantan, Brazil\\%
+$^4$Instituto de Qu\'imica, Universidade de S\~ao Paulo, Brazil%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{frame}
+\begin{columns}
+
+\leftcolumn{ 
+\begin{block}{Motivation}%
+\paragraph{In the context of machine learning, feature selection problem
+consists in choosing a subset of features that best explains the 
+classification with minimum redundancy. The space of solutions of this
+problem induces a boolean lattice and the cost function commonly 
+describes U shaped curves on chains of this lattice, caused by growth of
+estimation errors as we add more features.}
+    
+\paragraph{The U shaped curves justifies the reduction to the U-Curve
+problem: a special case of the feature selection problem where every 
+chain of the search space describe U shaped curves. Many algorithms 
+in the literacy exploit this reduction and yet they show limitations 
+regarding scalability, and that shows the need for new approaches on 
+solving the U-Curve problem. To this end, we developed the Parallel 
+U-Curve Search (PUCS).}
+\end{block}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                     
+\begin{block}{Simulations}%
+    \begin{figure}[h]
+    \begin{tabular}{l r}
+    \centering
+    \subfigure[] {
+        \label{fig:example:full}
+        \includegraphics[clip=true, width=0.3\textwidth]{simulation/Boolean_lattice.pdf}
+    }
+    &
+    \subfigure[] {
+        \label{fig:example:A}
+        \includegraphics[clip=true, width=0.3\textwidth]{simulation/Outer_Boolean_lattice_A.pdf}
+    }
+    \vspace*{.5cm} \\
+    \subfigure[] {
+        \label{fig:example:B}
+        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_B.pdf}
+    }
+    &
+    \subfigure[] {
+        \label{fig:example:C}
+        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_C.pdf}
+    }
+    \vspace*{.5cm} \\
+    \subfigure[] {
+        \label{fig:example:D}
+        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_D.pdf}
+    }
+    &
+    \subfigure[] {
+        \label{fig:example:E}
+        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_E.pdf}
+    }
+    \vspace*{.5cm} \\
+    \subfigure[] {
+        \label{fig:example:F}
+        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_F.pdf}
+    }
+    &
+    \subfigure[] {
+        \label{fig:example:G}
+        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_G.pdf}
+    }
+    \vspace*{.5cm} \\
+    \subfigure[] {
+        \label{fig:example:H}
+        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_H.pdf}
+    }
+    &
+    \subfigure[] {
+        \label{fig:example:I}
+        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_I.pdf}
+    }
+    \end{tabular}   
+    \caption{PUCS dynamics on an instance of the U-Curve problem.}
+    \label{fig:algorithm_toy_example} 
+\end{figure}
+
+\end{block}
+
+\vfill 
+\begin{block}{Acknowledgements}%
+\insidecolumns{0.5}{0.5}%
+{\mycenteredimage{institutions/FAPESP.jpg}{1.1}}%
+{\mycenteredimage{institutions/CNPq.png}{1.5}}%
+% \vspace*{-cm}%
+\end{block}%
+} % end \leftcolumn
+
+
+
+
+\rightcolumn{              
+\begin{block}{Results}%
+\rightfigparagraph{figures/aproximation_like.png}{19}{15}{%
+We implemented the PUCS algorithm on C++ language and used OpenMP
+to parallelize the code. Using a server with 64 cores and 256 gigabytes
+of memory we were able to confirm our expectations that the algorithm
+can find solutions as good as it possible (be optimal) as long as we
+increase the parameters {\em p} and {\em l}.
+}%
+
+\leftfigparagraph{qrcode_featsel.png}{4}{10}{
+We used the {\em featsel} framework to benchmark PUCS with other algorithms, such as Exhaustive Search (ES), Sequential Forward Selection (SFS) and 
+Backward Feature Selection (BFS).
+} % paragraph
+
+\begin{figure}[h]
+    \begin{tabular}{l r}
+    \centering
+    \subfigure[] {
+        \label{fig:art_res:small:time}
+        \includegraphics[clip=true, width=0.40\textwidth]{results/small_artificial_time.png}
+    }
+    &
+    \subfigure[] {
+        \label{fig:art_res:small:correctness}
+        \includegraphics[clip=true, width=0.40\textwidth]{results/small_artificial_corr.png}
+    }
+    \end{tabular}   
+    \caption{Average execution time and average number of times each
+    algorithm found the best solution. For these instances we used
+    an ES as a base for the PUCS algorithm.}
+    \label{fig:art_res:small} 
+\end{figure}
+
+\begin{figure}[h]
+    \begin{tabular}{l r}
+    \centering
+    \subfigure[] {
+        \label{fig:art_res:big:time}
+        \includegraphics[clip=true, width=0.40\textwidth]{results/big_artificial_time.png}
+    }
+    &
+    \subfigure[] {
+        \label{fig:art_res:big:correctness}
+        \includegraphics[clip=true, width=0.40\textwidth]{results/big_artificial_corr.png}
+    }
+    \end{tabular}   
+    \caption{Average execution time and average number of times each
+    algorithm found the best solution. For these instances we used
+    an SFS as a base for the PUCS algorithm.}
+    \label{fig:art_res:small} 
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[clip=true, width=0.75\textwidth]{results/easy_datasets.png}
+\caption{Caption}
+\label{fig:svm_error}
+\end{figure}
+
+\end{block}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Conclusion}%
+{%
+
+}%
+\end{block}
+}% end of right column
+\end{columns}
+\end{frame}
+\end{document}
