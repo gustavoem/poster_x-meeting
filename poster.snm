@@ -1,4 +1,3 @@
-\beamer@slide {fig:example:full}{1}
 \beamer@slide {fig:example:A}{1}
 \beamer@slide {fig:example:B}{1}
 \beamer@slide {fig:example:C}{1}
@@ -8,7 +7,6 @@
 \beamer@slide {fig:example:G}{1}
 \beamer@slide {fig:example:H}{1}
 \beamer@slide {fig:example:I}{1}
-\beamer@slide {fig:algorithm_toy_example}{1}
 \beamer@slide {fig:art_res:small:time}{1}
 \beamer@slide {fig:art_res:small:correctness}{1}
 \beamer@slide {fig:art_res:big:time}{1}
