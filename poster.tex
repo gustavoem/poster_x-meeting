@@ -65,46 +65,49 @@ describes U-shaped curves on chains of this lattice, what is explained by the in
     \centering
     \subfigure {
         \label{fig:example:B}
-        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_B.pdf}
+        \includegraphics[ clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_B.pdf}
     }
     &
     \subfigure {
         \label{fig:example:C}
-        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_C.pdf}
+        \includegraphics[clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_C.pdf}
     }
     \vspace*{.5cm} \\
     \subfigure {
         \label{fig:example:D}
-        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_D.pdf}
+        \includegraphics[ clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_D.pdf}
     }
     &
     \subfigure {
         \label{fig:example:E}
-        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_E.pdf}
+        \includegraphics[clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_E.pdf}
     }
     \vspace*{.5cm} \\
     \subfigure {
         \label{fig:example:F}
-        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_F.pdf}
+        \includegraphics[ clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_F.pdf}
     }
     &
     \subfigure {
         \label{fig:example:G}
-        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_G.pdf}
+        \includegraphics[clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_G.pdf}
     }
     \vspace*{.5cm} \\
     \subfigure {
         \label{fig:example:H}
-        \includegraphics[ clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_H.pdf}
+        \includegraphics[ clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_H.pdf}
     }
     &
     \subfigure {
         \label{fig:example:I}
-        \includegraphics[clip=true, width=0.30\textwidth]{simulation/Outer_Boolean_lattice_I.pdf}
+        \includegraphics[clip=true, width=0.29\textwidth]{simulation/Outer_Boolean_lattice_I.pdf}
     }
     \end{tabular}   
-    \caption{Dynamics of the PUCS algorithm. {\color{blue}[EXPLICAR O QUE SIGNIFICAM AS CORES]}
-}%
+    \caption{Dynamics of the PUCS algorithm. Blue, Yellow and Red colors
+        at the outer lattice mean, respectively, that the node is being 
+        processed, solved or removed from search space. The yellow color
+        on nodes of the inner reticulate means that the cost function
+        was evaluated for this node's subset.}%
 \end{figure}
 
 \end{block}
@@ -144,8 +147,12 @@ describes U-shaped curves on chains of this lattice, what is explained by the in
 \rightcolumn{              
 \begin{block}{Results}%
 \rightfigparagraph{figures/aproximation_like.png}{19}{15}{%
-We implemented the PUCS algorithm in C++ language and used OpenMP to parallelize the code. Using a 64-core, 256 GB RAM server, we were able to confirm our expectations that the algorithm can find solutions as good as it possible (be optimal) as long as we
-increase the parameters {\em p} and {\em l}.  {\color{blue}[EXPLICAR O QUE S\~AO p E l]}
+PUCS has two parameters {\em p} and {\em l}: the first determines 
+implicitly the size of the outer reticulate and the second the number 
+of recursive calls before calling the base case solver. In our 
+implementation, we were able to confirm our expectations that the
+algorithm can find solutions as good as it possible (be optimal) as 
+long as we increase the parameters {\em p} and {\em l}.
 }%
 
 \leftfigparagraph{qrcode_featsel.png}{6}{15}{
