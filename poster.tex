@@ -38,19 +38,19 @@ $^4$Instituto de Qu\'imica, Universidade de S\~ao Paulo, Brazil%
 \begin{block}{Motivation}%
 \paragraph{In the context of Machine Learning, the feature selection problem consists in choosing a subset of features that best explains the 
 classification with minimum redundancy. The space of solutions of this problem induces a Boolean lattice and the cost function commonly 
-describes U-shaped curves on chains of this lattice, what is explained by the increase of estimation error as we include more features. Hence, we can approximate this problem to the U-Curve problem, which is a special case of the feature selection problem where every chain of the search space describes U-shaped curves. Some algorithms in the literature exploit this approximation; still, they show limitations regarding scalability, which might be a problem for the feature selection step in the identification of cell signaling networks. To tackle this issue, we developed the Parallelized U-Curve Search (PUCS).}
+describes U-shaped curves on chains of this lattice, what is explained by the increase of estimation error as we include more features. Hence, we can approximate this problem to the U-Curve problem, which is a special case of the feature selection problem where every chain of the search space describes U-shaped curves. Some algorithms in the literature exploit this approximation; still, they show limitations regarding scalability, which might be a problem for the feature selection step in the identification of cell signaling networks. To tackle this issue, we developed the PUCS (Parallel U-Curve Search) algorithm (Fig.~1--2).}
 \end{block}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                     
-\begin{block}{Method}%
+\begin{block}{The algorithm}%
     \begin{figure}[h]
-    \begin{tabular}{l r}
+    \begin{tabular}{l c r}
     \centering
     \subfigure {
         \includegraphics[clip=true, width=0.3\textwidth]{simulation/Boolean_lattice.pdf}
     }
-    &
+     & \phantom{abcdefgh} &
     \subfigure {
         \label{fig:example:A}
         \includegraphics[clip=true, width=0.3\textwidth]{simulation/A.pdf}
@@ -61,59 +61,64 @@ describes U-shaped curves on chains of this lattice, what is explained by the in
 
 
     \begin{figure}[h]
-    \begin{tabular}{l r}
+    \begin{tabular}{l l c r r}
     \centering
+    (a) &
     \subfigure {
         \label{fig:example:B}
         \includegraphics[ clip=true, width=0.29\textwidth]{simulation/B.pdf}
     }
-    &
+    & \phantom{abcdefgh} &
     \subfigure {
         \label{fig:example:C}
         \includegraphics[clip=true, width=0.29\textwidth]{simulation/C.pdf}
     }
+    & (b)
     \vspace*{.5cm} \\
+    (c) &
     \subfigure {
         \label{fig:example:D}
         \includegraphics[ clip=true, width=0.29\textwidth]{simulation/D.pdf}
     }
-    &
+    & \phantom{abcde} &
     \subfigure {
         \label{fig:example:E}
         \includegraphics[clip=true, width=0.29\textwidth]{simulation/E.pdf}
     }
+    & (d)
     \vspace*{.5cm} \\
+    (e) &
     \subfigure {
         \label{fig:example:F}
         \includegraphics[ clip=true, width=0.29\textwidth]{simulation/F.pdf}
     }
-    &
+    & \phantom{abcde} &
     \subfigure {
         \label{fig:example:G}
         \includegraphics[clip=true, width=0.29\textwidth]{simulation/G.pdf}
     }
+    & (f)
     \vspace*{.5cm} \\
+    (g) &
     \subfigure {
         \label{fig:example:H}
         \includegraphics[ clip=true, width=0.29\textwidth]{simulation/H.pdf}
     }
-    &
+    & \phantom{abcde} &
     \subfigure {
         \label{fig:example:I}
         \includegraphics[clip=true, width=0.29\textwidth]{simulation/I.pdf}
     }
-    \end{tabular}   
-    \caption{Dynamics of the PUCS algorithm. Blue, Yellow and Red colors
-        at the outer lattice mean, respectively, that the node is being 
-        processed, solved or removed from search space. The yellow color
-        on nodes of the inner reticulate means that the cost function
-        was evaluated for this node's subset.}%
+    & (h)
+    \end{tabular}  
+    \bigskip 
+    \caption{Dynamics of the PUCS algorithm (Fig.~2(a)--(h)). In the outer lattice, blue, yellow and red colors mean a node being processed, solved or removed from the search space, respectively. In the inner lattice, yellow color on a given node means that the cost function was computed for its subset.}%
 \end{figure}
 
 \end{block}
 
 \vfill 
-\vspace*{-.5cm}%
+\vspace*{.5cm}%
 \begin{block}{Acknowledgements}%
 % \insidecolumns{0.2}{2}%
 % {\mycenteredimage{institutions/FAPESP.jpg}{1.1}}%
@@ -147,22 +152,21 @@ describes U-shaped curves on chains of this lattice, what is explained by the in
 \rightcolumn{              
 \begin{block}{Results}%
 \rightfigparagraph{figures/aproximation_like.png}{19}{15}{%
-PUCS has two parameters {\em p} and {\em l}: the first determines 
-implicitly the size of the outer reticulate and the second the number 
-of recursive calls before calling the base case solver. In our 
+PUCS has two parameters: {\em p} and {\em l} determine 
+the size of the outer lattice and the number 
+of recursive calls before calling the base case solver, respectively. In our 
 implementation, we were able to confirm our expectations that the
 algorithm can find solutions as good as it possible (be optimal) as 
 long as we increase the parameters {\em p} and {\em l}.
 }%
 
-\vspace{-2em}
-
-\leftfigparagraph{qrcode_featsel.png}{6}{15}{
-We used the {\em featsel} framework (\href{github.com/msreis/featsel}{github.com/msreis/featsel}) to benchmark PUCS with other algorithms, such as Exhaustive Search (ES), Sequential Forward Selection (SFS) and 
-Backward Feature Selection (BFS).
+\vspace{-1.5em}
+\leftfigparagraph{qrcode_featsel.png}{4}{10}{
+We used the {\em featsel} (\href{github.com/msreis/featsel}{github.com/msreis/featsel}), a C++ framework to implement and benchmark PUCS with other algorithms, such as Exhaustive Search (ES), Sequential Forward Selection (SFS) and 
+Backward Feature Selection (BFS). These experiments were carried out in a 64-core, 256 GB RAM server (Fig.~3--4).
 } % paragraph
 
-\vspace{-1em}
+\vspace{-1.5em}
 
 \begin{figure}[h]
     \begin{tabular}{l r}
@@ -204,9 +208,9 @@ Backward Feature Selection (BFS).
         \includegraphics[clip=true, width=0.40\textwidth]{results/svm_error.pdf}
     }
 \end{tabular}
-\caption{Average cross-validation error when using the features selected by
-    PUCS to design SVM classifiers for some biological databases available at 
-    the UCI Machine Learning Repository.}
+\caption{Average number of features selected by PUCS and average cross-validation
+    error when using these features to design SVM classifiers for some biological
+    databases available at the UCI Machine Learning Repository.}
 \label{fig:svm_error}
 \end{figure}
 
@@ -217,15 +221,14 @@ Backward Feature Selection (BFS).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{block}{Conclusion}%
 {
-
-\paragraph{Results showed that PUCS has a better time performance than optimal solvers such as ES, and also can find better solutions than heuristics such as SFS and BFS. Future and ongoing work on this research line includes:
+Results showed that PUCS has a better time performance than optimal solvers such as ES, and also can find better solutions than heuristics such as SFS and BFS. Future and ongoing work on this research line includes:
 \begin{itemize}
     \bigskip
     \item{Design of new algorithms, especially ones that generalize the search space for poset forests;}
     \bigskip
     \item{Application of PUCS on the feature selection step in identification of cell signaling pathways.}
 \end{itemize}
-}}
+}
 \end{block}
 }% end of right column
 \end{columns}
